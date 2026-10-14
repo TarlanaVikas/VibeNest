@@ -1,0 +1,145 @@
+.feeling-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: clamp(0px, 3vh, 28px);
+}
+
+.feeling-greeting {
+  font-family: var(--font-write);
+  font-style: italic;
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  color: var(--honey);
+}
+
+.feeling-title {
+  margin: 4px 0 36px;
+  max-width: 14ch;
+  text-wrap: balance;
+}
+
+.feeling-saved {
+  margin: -16px 0 24px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(139, 217, 154, 0.4);
+  background: rgba(139, 217, 154, 0.1);
+  color: var(--good);
+  font-size: 0.95rem;
+}
+
+/* ---- Mood pebbles ------------------------------------------------------ */
+.emoji-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+  max-width: 960px;
+}
+
+.emoji-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 120px;
+  height: 112px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  cursor: pointer;
+  border-radius: 58% 42% 52% 48% / 48% 56% 44% 52%;
+  transition: transform 0.4s var(--ease), border-color 0.25s, background-color 0.3s, box-shadow 0.4s;
+}
+.emoji-wrapper:nth-child(2n)  { border-radius: 44% 56% 46% 54% / 56% 44% 56% 44%; }
+.emoji-wrapper:nth-child(3n)  { border-radius: 52% 48% 60% 40% / 44% 58% 42% 56%; }
+.emoji-wrapper:nth-child(5n)  { border-radius: 40% 60% 50% 50% / 54% 46% 54% 46%; }
+
+.emoji-wrapper:hover,
+.emoji-wrapper:focus-visible {
+  transform: translateY(-8px) rotate(-3deg);
+  border-color: var(--mood);
+  background: color-mix(in oklab, var(--mood) 20%, var(--surface));
+  box-shadow: 0 22px 40px -18px var(--mood);
+}
+
+.emoji {
+  font-size: 2.6rem;
+  line-height: 1;
+}
+
+.emoji-label {
+  font-size: 0.9rem;
+  font-weight: 550;
+  color: var(--ink-2);
+  transition: color 0.2s;
+}
+.emoji-wrapper:hover .emoji-label,
+.emoji-wrapper:focus-visible .emoji-label {
+  color: var(--ink);
+}
+
+/* ---- After choosing a mood -------------------------------------------- */
+.note-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.selected-emoji {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.selected-emoji .emoji {
+  display: grid;
+  place-items: center;
+  width: 108px;
+  height: 108px;
+  font-size: 3.6rem;
+  border-radius: 58% 42% 52% 48% / 48% 56% 44% 52%;
+  border: 1px solid var(--mood);
+  background: color-mix(in oklab, var(--mood) 22%, var(--surface));
+  box-shadow: 0 24px 50px -20px var(--mood);
+}
+.selected-emoji .emoji-label {
+  margin-top: 8px;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 650;
+  color: var(--ink);
+}
+
+/* Writing surface: faint ruled lines, serif hand */
+.custom-textarea {
+  width: 100%;
+  height: 240px;
+  padding: 22px 24px;
+  resize: vertical;
+  border-radius: var(--radius-l);
+  border: 1px solid var(--line-strong);
+  background:
+    repeating-linear-gradient(transparent 0 33px, rgba(255, 214, 224, 0.07) 33px 34px),
+    var(--night-2);
+  color: var(--ink);
+  font-family: var(--font-write);
+  font-size: 1.35rem;
+  line-height: 34px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.custom-textarea::placeholder {
+  color: var(--ink-3);
+  font-style: italic;
+}
+.custom-textarea:focus {
+  outline: none;
+  border-color: var(--mood);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--mood) 22%, transparent);
+}

@@ -1,0 +1,36 @@
+/* Signup shares its base look with login-form.css */
+.signup-form {
+  padding-block: 8px;
+}
+
+select.signup-input {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 2.4rem;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--ink-2) 50%),
+    linear-gradient(135deg, var(--ink-2) 50%, transparent 50%);
+  background-position: calc(100% - 20px) 55%, calc(100% - 14px) 55%;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+
+select.signup-input option {
+  background: var(--surface);
+  color: var(--ink);
+}
+
+/* Age + sleep side by side */
+.signup-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.signup-field {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

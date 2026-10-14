@@ -1,0 +1,30 @@
+.top-tracks-heading {
+  margin-bottom: 14px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+.tracks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tracks-list .music-card {
+  background: var(--night-2);
+  padding: 10px 12px;
+}
+.tracks-list .music-cover {
+  flex-basis: 46px;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+}
+
+.no-tracks {
+  padding: 24px 0;
+  text-align: center;
+  color: var(--ink-3);
+}

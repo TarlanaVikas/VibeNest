@@ -1,0 +1,333 @@
+/* ==========================================================================
+   VibeNest design tokens + base
+   Dark "wine room": a warm, low-light palette with rose / honey / ember
+   accents. No blues anywhere. The ambient glow behind the UI follows the
+   mood the person picks.
+   ========================================================================== */
+
+/* Registered so the glow colour can transition smoothly */
+@property --aura-mood {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ff5c8a;
+}
+
+:root {
+  --night: #150b12;
+  --night-2: #1d1019;
+  --surface: #26141f;
+  --surface-2: #331c29;
+  --surface-3: #422638;
+
+  --line: rgba(255, 214, 224, 0.1);
+  --line-strong: rgba(255, 214, 224, 0.2);
+
+  --ink: #f8ebee;
+  --ink-2: #c3a5b0;
+  --ink-3: #9a7e8a;
+
+  --rose: #ff5c8a;
+  --rose-hi: #ff7ba3;
+  --rose-ink: #2a0b16;
+  --honey: #ffc25a;
+  --ember: #ff8a3d;
+  --mint: #7fe0c3;
+  --good: #8bd99a;
+  --bad: #ff5c8a;
+
+  --radius-s: 10px;
+  --radius-m: 16px;
+  --radius-l: 24px;
+  --radius-xl: 34px;
+
+  --font-display: "Bricolage Grotesque Variable", "Figtree Variable", system-ui, sans-serif;
+  --font-body: "Figtree Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-write: "Instrument Serif", Georgia, "Times New Roman", serif;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  color-scheme: dark;
+  transition: --aura-mood 1.1s ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--night);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--night);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Everything real sits above the ambient glow */
+.app-layer {
+  position: relative;
+  z-index: 1;
+}
+
+::selection {
+  background: var(--rose);
+  color: var(--rose-ink);
+}
+
+a {
+  color: var(--rose-hi);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover {
+  color: var(--honey);
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--honey);
+  outline-offset: 3px;
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+  color: var(--ink);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+/* Thin scrollbars that match the room */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--surface-3) transparent;
+}
+
+/* ------------------------------ Ambient glow ----------------------------- */
+.aura {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.aura-blob {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+}
+
+.aura-one {
+  width: 70vmax;
+  height: 70vmax;
+  top: -28vmax;
+  left: -18vmax;
+  background: radial-gradient(closest-side, color-mix(in oklab, var(--aura-mood) 55%, transparent), transparent);
+  opacity: 0.5;
+  animation: drift-a 38s ease-in-out infinite alternate;
+}
+
+.aura-two {
+  width: 60vmax;
+  height: 60vmax;
+  right: -22vmax;
+  bottom: -26vmax;
+  background: radial-gradient(closest-side, color-mix(in oklab, var(--aura-mood) 35%, #ffc25a 25%), transparent);
+  opacity: 0.32;
+  animation: drift-b 46s ease-in-out infinite alternate;
+}
+
+.aura-three {
+  width: 40vmax;
+  height: 40vmax;
+  top: 30%;
+  right: 18%;
+  background: radial-gradient(closest-side, rgba(255, 138, 61, 0.16), transparent);
+  animation: drift-a 52s ease-in-out infinite alternate-reverse;
+}
+
+/* Fine grain keeps big dark areas from looking flat */
+.aura::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 .85  0 0 0 0 .9  0 0 0 .6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+@keyframes drift-a {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(8vmax, 6vmax, 0) scale(1.12); }
+}
+@keyframes drift-b {
+  from { transform: translate3d(0, 0, 0) scale(1.05); }
+  to   { transform: translate3d(-9vmax, -5vmax, 0) scale(0.95); }
+}
+
+/* ------------------------------ Shared bits ------------------------------ */
+.page-head {
+  width: 100%;
+  margin-bottom: 28px;
+}
+.page-head--center {
+  text-align: center;
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 4.2vw, 3rem);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+.page-sub {
+  margin-top: 8px;
+  max-width: 52ch;
+  color: var(--ink-2);
+}
+.page-head--center .page-sub {
+  margin-inline: auto;
+}
+
+.link-btn {
+  background: none;
+  border: 0;
+  padding: 4px 2px;
+  color: var(--ink-2);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--line-strong);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.link-btn:hover {
+  color: var(--honey);
+}
+
+.inline-error,
+.form-msg.is-error {
+  color: #ff9fb6;
+}
+.chart-empty {
+  padding: 40px 0;
+  text-align: center;
+  color: var(--ink-3);
+}
+
+.form-msg {
+  padding: 12px 14px;
+  border-radius: var(--radius-s);
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+.form-msg.is-error {
+  background: rgba(255, 92, 138, 0.12);
+  border: 1px solid rgba(255, 92, 138, 0.35);
+}
+.form-msg.is-success {
+  background: rgba(139, 217, 154, 0.12);
+  border: 1px solid rgba(139, 217, 154, 0.35);
+  color: var(--good);
+}
+
+/* Shared panel look for insight / list cards */
+.insight-card,
+.weekly-comparison-card,
+.mood-trend-card-new,
+.top-tracks-container,
+.goal-list-card-new,
+.reflection-card,
+.goals-comparison-card,
+.milestone-card,
+.quote-card,
+.top-coping-container {
+  background: linear-gradient(180deg, rgba(255, 214, 224, 0.045), rgba(255, 214, 224, 0.015)), var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  padding: 22px;
+  width: 100%;
+}
+
+.card-heading {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+
+.chart-box {
+  position: relative;
+  height: 260px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Option chips shared by Breathe and Timer */
+.sound-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  max-width: 560px;
+}
+
+.sound-btn {
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--ink-2);
+  font-weight: 550;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s, transform 0.25s var(--ease);
+}
+.sound-btn:hover {
+  border-color: var(--rose);
+  color: var(--ink);
+}
+.sound-btn.active {
+  background: var(--rose);
+  border-color: var(--rose);
+  color: var(--rose-ink);
+}

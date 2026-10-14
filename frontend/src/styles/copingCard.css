@@ -1,0 +1,12 @@
+.coping-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: var(--radius-m);
+  background: var(--night-2);
+  border: 1px solid var(--line);
+}
+.coping-icon { font-size: 1.6rem; }
+.coping-title { font-family: var(--font-display); font-weight: 600; color: var(--ink); }
+.coping-description { font-size: 0.88rem; color: var(--ink-2); }

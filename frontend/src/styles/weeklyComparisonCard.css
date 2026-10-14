@@ -1,0 +1,33 @@
+.weekly-comparison-card {
+  padding: 18px 22px;
+}
+.weekly-comparison-card .card-heading {
+  margin-bottom: 10px;
+}
+
+.card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.card-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.92rem;
+  color: var(--ink-2);
+}
+.card-left strong {
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.card-right {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.7rem;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}

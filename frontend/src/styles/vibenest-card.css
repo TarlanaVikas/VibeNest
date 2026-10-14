@@ -1,0 +1,38 @@
+/* Brand lockup: used on the splash and beside the login / signup forms */
+.vibenest-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+  max-width: 420px;
+  padding: 24px;
+  text-align: center;
+}
+
+.vibenest-card-mark {
+  filter: drop-shadow(0 0 28px rgba(255, 92, 138, 0.55));
+  animation: nest-breathe 7s ease-in-out infinite;
+}
+
+.vibenest-wordmark {
+  font-family: var(--font-display);
+  font-weight: 750;
+  font-size: clamp(2.8rem, 8vw, 4.8rem);
+  line-height: 1;
+  letter-spacing: -0.045em;
+  color: var(--ink);
+}
+
+.vibenest-tagline {
+  max-width: 30ch;
+  text-wrap: balance;
+  color: var(--ink-2);
+  font-size: 1.05rem;
+}
+
+@keyframes nest-breathe {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.08); }
+}

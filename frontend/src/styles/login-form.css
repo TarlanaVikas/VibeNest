@@ -1,0 +1,94 @@
+.login-form,
+.signup-form {
+  margin-block: auto; /* centres when short, scrolls cleanly when tall */
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.login-form {
+  gap: 10px;
+}
+
+/* Brand row only appears when the left panel is hidden */
+.login-title,
+.signup-title {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  font-family: var(--font-display);
+  font-weight: 750;
+  font-size: 1.4rem;
+  letter-spacing: -0.03em;
+}
+
+.form-sub {
+  margin: 4px 0 12px;
+  color: var(--ink-2);
+}
+
+.login-label,
+.signup-label {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  font-weight: 550;
+  color: var(--ink-2);
+}
+
+.login-input,
+.signup-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius-m);
+  border: 1px solid var(--line-strong);
+  background: var(--night-2);
+  color: var(--ink);
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.login-input::placeholder,
+.signup-input::placeholder {
+  color: var(--ink-3);
+}
+
+.login-input:focus,
+.signup-input:focus {
+  outline: none;
+  border-color: var(--rose);
+  background: var(--surface);
+  box-shadow: 0 0 0 4px rgba(255, 92, 138, 0.18);
+}
+
+.login-form .btn-primary,
+.signup-form .btn-primary {
+  width: 100%;
+  margin-top: 18px;
+  padding: 0.95rem 1.8rem;
+}
+
+.login-footer,
+.signup-footer {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 0.92rem;
+  color: var(--ink-2);
+}
+
+.login-form .form-msg,
+.signup-form .form-msg {
+  margin-top: 10px;
+}
+
+@media (max-width: 750px) {
+  .login-title,
+  .signup-title {
+    display: flex;
+  }
+  .login-form,
+  .signup-form {
+    margin-top: 12px;
+  }
+}

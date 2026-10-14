@@ -1,0 +1,4 @@
+/* Uses the shared .insight-card look from theme.css */
+.insight-card .card-heading {
+  margin-bottom: 8px;
+}

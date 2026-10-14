@@ -1,0 +1,23 @@
+.goal-list-heading {
+  margin-bottom: 14px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+.goal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.goal-list .goal-box {
+  background: var(--night-2);
+}
+
+.goal-message {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: var(--good);
+}

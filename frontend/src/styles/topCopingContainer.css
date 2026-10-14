@@ -1,0 +1,7 @@
+.top-coping-heading {
+  margin-bottom: 14px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+.coping-list { display: flex; flex-direction: column; gap: 10px; }

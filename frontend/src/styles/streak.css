@@ -1,0 +1,35 @@
+.streak-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: rgba(29, 16, 25, 0.85);
+  color: var(--ink-3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.thunder-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Lit when the streak is running */
+.streak-chip.is-lit {
+  color: var(--honey);
+  border-color: rgba(255, 194, 90, 0.5);
+  box-shadow: 0 0 24px -4px rgba(255, 194, 90, 0.45);
+}
+.streak-chip.is-lit .thunder-icon {
+  filter: drop-shadow(0 0 6px rgba(255, 194, 90, 0.8));
+}
+
+.streak-days {
+  font-size: 1.05rem;
+  color: var(--ink);
+}

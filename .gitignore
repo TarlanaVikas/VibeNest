@@ -1,0 +1,124 @@
+# ---------------------------------------------------------------------------
+# VibeNest .gitignore
+# ---------------------------------------------------------------------------
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+.yarn/
+.npm/
+.pnpm-store/
+
+# Build output
+dist/
+dist-ssr/
+build/
+out/
+.vite/
+.cache/
+.parcel-cache/
+*.tsbuildinfo
+
+# Environment variables & secrets (keep the *.example templates)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Test & coverage
+coverage/
+.nyc_output/
+*.lcov
+
+# Hosting / tooling
+.vercel/
+.netlify/
+.render/
+.eslintcache
+.stylelintcache
+
+# Python (ML services)
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ML model weights, checkpoints & experiment output (large, regenerate or host elsewhere)
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.hdf5
+*.onnx
+*.tflite
+*.pb
+*.npy
+*.npz
+*.pkl
+*.pickle
+*.joblib
+pytorch_model*.bin
+tf_model.h5
+flax_model.msgpack
+optimizer.pt
+scheduler.pt
+rng_state.pth
+checkpoint-*/
+checkpoints/
+runs/
+wandb/
+mlruns/
+lightning_logs/
+tensorboard/
+
+# Local datasets (keep small samples elsewhere if needed)
+ml-services/**/data/
+ml-services/**/datasets/
+
+# IDE / editor
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*~
+
+# OS files
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Temp & archives
+tmp/
+temp/
+*.tmp
+*.bak
+*.zip
+*.tar
+*.tar.gz

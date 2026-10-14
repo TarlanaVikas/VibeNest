@@ -1,0 +1,100 @@
+.goal-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: var(--radius-l);
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255, 214, 224, 0.045), rgba(255, 214, 224, 0.015)), var(--surface);
+  transition: border-color 0.25s, transform 0.3s var(--ease);
+}
+.goal-box:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-2px);
+}
+
+.goal-symbol {
+  flex: 0 0 52px;
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  font-size: 1.6rem;
+  border-radius: 18px;
+  background: var(--surface-2);
+}
+
+.goal-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.goal-heading,
+.goal-desc {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+.goal-heading {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.02rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.goal-desc {
+  font-size: 0.88rem;
+  color: var(--ink-2);
+  overflow-wrap: anywhere;
+}
+
+.goal-date {
+  margin-top: 2px;
+  font-size: 0.8rem;
+  color: var(--ink-3);
+}
+
+/* Round action buttons: tick (complete) and plus (add) */
+.goal-tick,
+.goal-add {
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.25s var(--ease), background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+.goal-tick svg,
+.goal-add svg {
+  width: 20px;
+  height: 20px;
+}
+
+.goal-tick {
+  border: 1px solid rgba(139, 217, 154, 0.5);
+  background: transparent;
+  color: var(--good);
+}
+.goal-tick:hover {
+  background: var(--good);
+  color: #10230f;
+  transform: scale(1.08);
+}
+
+.goal-add {
+  border: 1px solid rgba(255, 194, 90, 0.5);
+  background: transparent;
+  color: var(--honey);
+}
+.goal-add:hover {
+  background: var(--honey);
+  color: #2a1a00;
+  transform: scale(1.08);
+}

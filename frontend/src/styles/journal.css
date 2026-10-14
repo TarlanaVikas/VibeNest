@@ -1,0 +1,71 @@
+.journal-page,
+.pastjournal-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Stack of paper notes: two tilted behind, the live one on top */
+.stack-container {
+  position: relative;
+  width: min(480px, 100%);
+  min-height: 460px;
+  margin-top: 8px;
+}
+
+.stack-container .fixnote-wrapper,
+.stack-container .note-wrapper {
+  position: absolute;
+  inset: 0 0 auto 0;
+}
+
+.fixnote-wrapper {
+  transition: transform 0.5s var(--ease);
+}
+.tilt-left {
+  transform: rotate(-5deg) translateX(-14px);
+  opacity: 0.7;
+}
+.tilt-right {
+  transform: rotate(4deg) translateX(14px);
+  opacity: 0.85;
+}
+.stack-container:hover .tilt-left {
+  transform: rotate(-7deg) translateX(-26px);
+}
+.stack-container:hover .tilt-right {
+  transform: rotate(6deg) translateX(26px);
+}
+
+.note-wrapper {
+  z-index: 2;
+}
+
+.old-entries-container {
+  margin-top: 28px;
+}
+
+.old-entries-btn,
+.nav-btn {
+  padding: 11px 24px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--ink);
+  font-weight: 550;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, transform 0.25s var(--ease);
+}
+.old-entries-btn:hover,
+.nav-btn:hover {
+  background: var(--surface-2);
+  border-color: var(--rose);
+  transform: translateY(-2px);
+}
+
+.pastjournal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+}

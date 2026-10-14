@@ -1,0 +1,2 @@
+.milestone-title { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; color: var(--ink); }
+.milestone-desc { margin-top: 4px; font-size: 0.9rem; color: var(--ink-2); }
